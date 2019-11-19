@@ -148,18 +148,18 @@
 	<div id="toolbar" class="toolbar">
 		
 		<!-- Tools Container -->
-		<div class="toolsContainer toolbarSection"></div>
+		<div class="toolsContainer toolbarSection "></div>
 				<!-- Color Container -->
-				<div class="colorContainer toolbarSection extraSpace">
+				<div class="colorContainer toolbarSection extraSpace ">
 					<input type="text" value="#886688" id="fillColorInput" class="fillColor" />
 					<input type="text" id="strokeColorInput" class="strokeColor"/>
-					<div class="colorSwitchButton" id="colorSwitchButton" title="Switch colors"></div>
 				</div>
+		<a id="colorSwitchButton"title="Switch Colors (X)"><img src="assets/icon_switchColor.svg"class="swtchBtn"></a>
 		
-		<div class="fillClr" id="fill"></div>
+		<!--<div class="fillClr" id="fill"></div>
 		<a onclick="switchColors()" title="Switch Colors (X)"><img src="assets/icon_switchColor.svg"class="swtchBtn"></a>
 		<div class="strokeClr" id="stroke"></div>
-		<div class="strokeCentr"></div>
+		<div class="strokeCentr"></div>-->
 	</div>
 	
 	<div id="statusBar" class="statusBar">
@@ -284,6 +284,21 @@
 		applyStrokeColorToSelection(color.rgbaString);
 	};
 
+	function switchColors(){
+		var sCC = sParent.style.backgroundColor;
+		var fCC = fParent.style.backgroundColor;
+
+		console.log(sCC);
+		console.log(fCC);
+
+		fParent.style.backgroundColor = sCC;
+		sParent.style.backgroundColor = fCC;
+
+		applyFillColorToSelection(sCC);
+		applyStrokeColorToSelection(fCC);
+		console.log(sCC);
+		console.log(fCC);
+	}
     // onDone is similar to onChange, but only called when you click 'Ok'.
 
 
