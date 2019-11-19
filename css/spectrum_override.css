@@ -4,25 +4,25 @@
 	padding: 0;
 	margin: 0 0 4px 0;
 	background-color: transparent;
-	display:inline-block;
+	display: inline-block;
 }
 
 .sp-preview {
 	box-sizing: border-box;
-	width: 38px;
-	height: 38px;
+	width: 28px;
+	height: 28px;
 	margin: 0;
-	border: 1px solid #aaa;
-	border-radius: 2px;
-	display:inline-block;
+	border: 2px solid rgb(255, 255, 255);
+	border-radius: 200px;
+	display: inline-block;
 }
 
 .sp-preview-inner {
-	border-radius: 1px;
+	border-radius: 100px;
 }
 
 .sp-dd {
-	display:none;
+	display: none;
 }
 
 .sp-container {
@@ -41,10 +41,10 @@
 	background-position: top left;
 	width: 24px;
 	height: 24px;
-	cursor:pointer;
+	cursor: pointer;
 }
 
-.sp-clear-enabled .sp-hue{
+.sp-clear-enabled .sp-hue {
 	width: 24px;
 }
 
@@ -57,8 +57,7 @@
 }
 
 .strokeColorSpec {
-	left: 22px;
-	top: 20px;
+	top: 50px;
 	z-index: 100;
 }
 
@@ -67,11 +66,11 @@
 	position: absolute;
 	top: 7px;
 	left: 7px;
-	width: 24px;
-	height: 24px;
+	width: 14px;
+	height: 14px;
 	z-index: 2;
-	border: 1px solid #aaa;
-	border-radius: 2px;
+	border: 1px solid rgb(255, 255, 255);
+	border-radius: 200px;
 }
 
 .transSpec .sp-preview {
@@ -80,5 +79,5 @@
 
 .transSpecContainer .sp-top-inner,
 .transSpecContainer .sp-fill {
-	display:none;
+	display: none;
 }

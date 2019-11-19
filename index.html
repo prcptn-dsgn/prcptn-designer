@@ -74,18 +74,8 @@
 
 		</ul>
 	</nav>
-	
-	<div id="toolbar" class="toolbar">
+	<div id="topbar" class="topbar">
 		
-		<!-- Tools Container -->
-		<div class="toolsContainer toolbarSection"></div>
-		
-		<!-- Color Container -->
-		<div class="colorContainer toolbarSection extraSpace">
-			<input type="text" id="fillColorInput" class="fillColor" />
-			<input type="text" id="strokeColorInput" class="strokeColor"/>
-			<div class="colorSwitchButton" id="colorSwitchButton" title="Switch colors"></div>
-		</div>
 		
 		<div class="opacitySection toolbarSection extraSpace">
 			<label class="toolbarLabel">Opacity</label>
@@ -152,6 +142,19 @@
 				<button class="inputHelper decrease" id="decreaseStrokeWidthButton">▾</button>
 			</div>
 		</div>
+		<button onclick="applyStrokeColorToSelection('#121212');" class="strokeSection toolbarSection extraSpace"><button/button>
+	</div>
+	<div id="toolbar" class="toolbar">
+		
+		<!-- Tools Container -->
+		<div class="toolsContainer toolbarSection"></div>
+		
+		<!-- Color Container -->
+		<div class="colorContainer toolbarSection extraSpace">
+			<input type="text" value="#886688" id="fillColorInput" class="fillColor" />
+			<input type="text" id="strokeColorInput" class="strokeColor"/>
+			<div class="colorSwitchButton" id="colorSwitchButton" title="Switch colors"></div>
+		</div>
 	</div>
 	
 	<div id="statusBar" class="statusBar">
@@ -178,7 +181,6 @@
 		</div>
 		
 	</div>
-	
 	<div id="codeEditorContainer" class="codeEditorContainer hidden">
 		<nav class="codeEditorButtons appNav">
 			<ul class="topMenu">
@@ -256,6 +258,28 @@
 
 	<!-- dev -->
 	<script src="js/dev.js"></script>
+
+	<script>var applyStrokeColorToSelection = function (colorString) {
+		var items = pg.selection.getSelectedItems();
+
+		for (var i = 0; i < items.length; i++) {
+			var item = items[i];
+			if (pg.item.isPGTextItem(item)) {
+				for (var j = 0; j < item.children.length; j++) {
+					var child = item.children[j];
+					for (var k = 0; k < child.children.length; k++) {
+						var path = child.children[k];
+						if (!path.data.isPGGlyphRect) {
+							path.strokeColor = colorString;
+						}
+					}
+				}
+			} else {
+				item.strokeColor = colorString;
+			}
+		}
+		pg.undo.snapshot('applyStrokeColorToSelection');
+	};</script>
 
 </body>
 </html>

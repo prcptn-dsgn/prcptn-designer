@@ -1,11 +1,11 @@
 
 .toolOptionPanel {
 	position: absolute;
-	top: 38px;
-	left: 84px;
-	background-color: #fff;
+	top: 9.5vh;
+	left: 5vw;
+	background-color: rgb(66, 66, 66);
 	padding: 8px 10px 10px 10px;
-	border-radius: 0 0 3px 3px;
+	border-radius: 5px;
 	min-width: 90px;
 }
 
@@ -14,10 +14,12 @@
 	clear:both;
 }
 
-.toolOptionPanel .option-section {
+.toolOptionPanel .option-section{
 	position: relative;
+	/*display: inline-block;
+	margin-left: 10px;*/
+	color:rgb(184, 184, 184)
 }
-
 .toolOptionPanel .option-section:after {
 	content: "";
 	display:table;
