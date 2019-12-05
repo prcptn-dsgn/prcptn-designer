@@ -78,7 +78,7 @@
 	<div id="topbar" class="topbar">
 		
 		
-		<div class="opacitySection toolbarSection extraSpace">
+		<div class="opacitySection tooltopSection extraSpace">
 			<label class="toolbarLabel">Opacity</label>
 			<input type="number"  min="0" max="100" maxlength="3" id="opacityInput" value="100" class="opacityInput comboInput" title="Opacity"/>
 			<select id="opacitySelect" class="opacitySelect comboSelect" title="Opacity">
@@ -97,7 +97,7 @@
 			</select>
 		</div>
 		
-		<div class="blendModeSection toolbarSection extraSpace">
+		<div class="blendModeSection tooltopSection extraSpace">
 			<label class="toolbarLabel">Blending</label>
 			<select id="blendModeSelect" class="blendModeSelect" title="Blend mode">
 				<option value="normal" selected>Normal</option>
@@ -143,7 +143,6 @@
 				<button class="inputHelper decrease" id="decreaseStrokeWidthButton">▾</button>
 			</div>
 		</div>
-		<button onclick="applyStrokeColorToSelection('#121212');" class="strokeSection toolbarSection extraSpace"><button/button>
 	</div>
 	<div id="toolbar" class="toolbar">
 		
@@ -264,89 +263,6 @@
 	<!-- dev -->
 	<script src="js/dev.js"></script>
 
-	<script>
-	// Create a new Picker instance and set the parent element.
-    // By default, the color picker is a popup which appears when you click the parent.
-    var fParent = document.querySelector('#fill');
-	var fPicker = new Picker(fParent);
-	var sParent = document.querySelector('#stroke');
-    var sPicker = new Picker(sParent);
-
-	var sCC = sParent.style.backgroundColor;
-	var fCC = fParent.style.backgroundColor;
-    // You can do what you want with the chosen color using two callbacks: onChange and onDone.
-    fPicker.onChange = function(color) {
-        fParent.style.background = color.rgbaString;
-		applyFillColorToSelection(color.rgbaString);
-	};
-	sPicker.onChange = function(color) {
-        sParent.style.background = color.rgbaString;
-		applyStrokeColorToSelection(color.rgbaString);
-	};
-
-	function switchColors(){
-		var sCC = sParent.style.backgroundColor;
-		var fCC = fParent.style.backgroundColor;
-
-		console.log(sCC);
-		console.log(fCC);
-
-		fParent.style.backgroundColor = sCC;
-		sParent.style.backgroundColor = fCC;
-
-		applyFillColorToSelection(sCC);
-		applyStrokeColorToSelection(fCC);
-		console.log(sCC);
-		console.log(fCC);
-	}
-    // onDone is similar to onChange, but only called when you click 'Ok'.
-
-
-	var applyStrokeColorToSelection = function (colorString) {
-		var items = pg.selection.getSelectedItems();
-
-		for (var i = 0; i < items.length; i++) {
-			var item = items[i];
-			if (pg.item.isPGTextItem(item)) {
-				for (var j = 0; j < item.children.length; j++) {
-					var child = item.children[j];
-					for (var k = 0; k < child.children.length; k++) {
-						var path = child.children[k];
-						if (!path.data.isPGGlyphRect) {
-							path.strokeColor = colorString;
-						}
-					}
-				}
-			} else {
-				item.strokeColor = colorString;
-			}
-		}
-		pg.undo.snapshot('applyStrokeColorToSelection');
-	};
-	var applyFillColorToSelection = function (colorString) {
-		var items = pg.selection.getSelectedItems();
-		for (var i = 0; i < items.length; i++) {
-			var item = items[i];
-			if (pg.item.isPGTextItem(item)) {
-				for (var j = 0; j < item.children.length; j++) {
-					var child = item.children[j];
-					for (var k = 0; k < child.children.length; k++) {
-						var path = child.children[k];
-						if (!path.data.isPGGlyphRect) {
-							path.fillColor = colorString;
-						}
-					}
-				}
-			} else {
-				if (pg.item.isPointTextItem(item) && !colorString) {
-					colorString = 'rgba(0,0,0,0)';
-				}
-				item.fillColor = colorString;
-			}
-		}
-		pg.undo.snapshot('applyFillColorToSelection');
-	};
-	</script>
 
 </body>
 </html>

@@ -19,7 +19,7 @@
 	background-color: rgb(66, 66, 66);
 	border-radius: 0 0 3px 0;
 	z-index: 20;
-	height: 43px;
+	height: 44px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	margin-left:43px;
@@ -68,16 +68,16 @@
 
 .toolbarSection {
 	position: relative;
-	margin-bottom: 20px;
+	margin-bottom: 20px
+}
+.tooltopSection {
+	position: relative;
 }
 .colorControlContainer{
 	visibility: hidden;
 }
 
 
-.toolbarSection.extraSpace {
-	margin-bottom: 30px;
-}
 
 .toolbarSection:last-child {
 	margin-bottom: 0;
@@ -100,12 +100,14 @@
 	overflow: hidden;
 	background-repeat: no-repeat;
 	background-size: 28px;
+	transition: 0.4s;
 }
 
 .tool:hover,
 .tool.active {
-	background-color: #383838;
+	filter: brightness(0) invert(78%) sepia(18%) saturate(1144%) hue-rotate(111deg) brightness(100%) contrast(89%);
 }
+
 
 
 .colorContainer {

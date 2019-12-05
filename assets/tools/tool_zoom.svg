@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generator: Adobe Illustrator 23.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="32px" height="32px" viewBox="64.5 288.5 32 32" enable-background="new 64.5 288.5 32 32" xml:space="preserve">
-<circle fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" cx="77.924" cy="302.727" r="7.508"/>
-<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="83.069" y1="308.186" x2="88.247" y2="313.361"/>
+	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+</style>
+<circle class="st0" cx="13.4" cy="14.2" r="7.5"/>
+<line class="st1" x1="18.6" y1="19.7" x2="23.7" y2="24.9"/>
 </svg>
